@@ -6,42 +6,44 @@ import SideDrawer from "../SideBar/SideDrawer";
 import "./MainNavigation.css";
 import Backdrop from "../../components/Back/Backdrop";
 
-export default function MainNavigation() {
-  const [draweropen, setdraweropen] = useState(false);
+const MainNavigation = (props) => {
+  const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
-  const opnetheDrawerHandler = () => {
-    setdraweropen(true);
+  const openDrawerHandler = () => {
+    setDrawerIsOpen(true);
   };
 
   const closeDrawerHandler = () => {
-    setdraweropen(false);
+    setDrawerIsOpen(false);
   };
+
   return (
     <React.Fragment>
-      {draweropen && <Backdrop onClick={closeDrawerHandler} />}
-
-      <SideDrawer show={draweropen} onClick={closeDrawerHandler}>
+      {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
+      <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
         <nav className="main-navigation__drawer-nav">
-          <NavLinks></NavLinks>
+          <NavLinks />
         </nav>
       </SideDrawer>
 
       <MainHeader>
         <button
           className="main-navigation__menu-btn"
-          onClick={opnetheDrawerHandler}
+          onClick={openDrawerHandler}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </button>
         <h1 className="main-navigation__title">
-          <Link to="/">Your Places</Link>
+          <Link to="/">YourPlaces</Link>
         </h1>
         <nav className="main-navigation__header-nav">
-          <NavLinks></NavLinks>
+          <NavLinks />
         </nav>
       </MainHeader>
     </React.Fragment>
   );
-}
+};
+
+export default MainNavigation;

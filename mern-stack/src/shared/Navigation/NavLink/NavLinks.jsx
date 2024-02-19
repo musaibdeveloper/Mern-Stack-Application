@@ -6,12 +6,12 @@ export default function NavLinks() {
   return (
     <ul className="nav-links">
       <li>
-        <NavLink to="/" exact>
+        <NavLink to="/user" exact>
           All Users
         </NavLink>
       </li>
       <li>
-        <NavLink to="/u1/places">My Places</NavLink>
+        <NavLink to="/:userID/userplaces">My Places</NavLink>
       </li>
       <li>
         <NavLink to="/places/new">Add Places</NavLink>
